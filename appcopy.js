@@ -25,15 +25,15 @@ const server = http.createServer(function (request, response) {
   //*contant-type은 html을 쓰되 나타내는건 text로 나타내는것
   //*write = 본문(body)에 보여지는 부분을 쓰는 메서드이다.
   //*응답을 종료하는 메서드
-  // if (request.url === "/sub") {
-  //   response.writeHead(200, { "contant-Type": "text/html" });
-  //   fs.readFile("./index1.html", function (err, data) {
-  //     if (err) {
-  //       console.err("파일을 찾지 못했습니다.");
-  //     } else {
-  //       response.end(data);
-  //     }
-  //   });
-  // }
+  if (request.url === "/sub") {
+    response.writeHead(200, { "contant-Type": "text/html" });
+    fs.readFile("./index1.html", function (err, data) {
+      if (err) {
+        console.err("파일을 찾지 못했습니다.");
+      } else {
+        response.end(data);
+      }
+    });
+  }
 });
 server.listen(1234);
